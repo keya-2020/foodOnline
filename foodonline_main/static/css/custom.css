@@ -1,0 +1,18 @@
+
+@keyframes show-toast{
+    0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-100px);
+      }
+
+}
+
+.show-notification{
+    position: fixed;   
+    top: 100%;
+    right: 20px;
+    animation-name: show-toast;
+    animation-duration: 10s;
+}
