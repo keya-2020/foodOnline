@@ -19,3 +19,5 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Les mots de passe sont différents."
             )
+
+
