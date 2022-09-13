@@ -1,4 +1,3 @@
-import imp
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models.fields.related import OneToOneField
@@ -34,7 +33,7 @@ class UserManager(BaseUserManager):
         user.is_admin=True
         user.is_active=True
         user.is_staff=True
-        user.is_superadmin=True
+        user.is_superuser=True
         user.save(using=self._db)
         return user
     
@@ -44,7 +43,7 @@ class User(AbstractBaseUser):
     CUSTOMER = 2
 
     ROLE_CHOICE=(
-        (VENDOR, 'vendor'),
+        (VENDOR, 'Vendor'),
         (CUSTOMER, 'Customer'),
     )
     first_name = models.CharField(max_length=50)
@@ -79,9 +78,9 @@ class User(AbstractBaseUser):
     
     def get_role(self):
         if self.role ==1:
-            user_role = 'vendor'
+            user_role = 'Vendor'
         elif self.role ==2:
-            user_role ='customer'
+            user_role ='Customer'
         return user_role
 
 
