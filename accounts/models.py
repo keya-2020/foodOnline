@@ -99,6 +99,14 @@ class UserProfile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
+    def full_address(self):
+        if self.address_line_2 == None:
+            address = self.address_line_1
+        else:
+            address = f'{self.address_line_1},{self.address_line_2}'
+        
+        return address
+
     def __str__(self):
         return self.user.email
 
